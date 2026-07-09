@@ -1,0 +1,43 @@
+{% extends 'menu.html' %}
+
+{% block content %}
+<div class="card max-w-lg mx-auto">
+    <h2 class="text-xl font-bold mb-4 text-indigo-600">สร้างสินค้าใหม่</h2>
+    <p class="text-sm text-gray-500 mb-6">กรุณากรอกข้อมูลสินค้าให้ครบถ้วนเพื่อทำการบันทึก</p>
+    <form method="POST" class="space-y-4">
+        {% csrf_token %}
+        <div>
+            <label for="brand" class="block text-sm font-medium text-gray-700">Brand</label>
+            <input type="text" id="brand" name="brand" required
+                class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+        </div>
+
+        <div>
+            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+            <input type="text" id="name" name="name" required
+                class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+                <input type="number" step="0.01" id="price" name="price" required
+                    class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+            </div>
+
+            <div>
+                <label for="stock" class="block text-sm font-medium text-gray-700">Stock</label>
+                <input type="number" id="stock" name="stock" required
+                    class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+            </div>
+        </div>
+
+        <div class="pt-2">
+            <button type="submit"
+                class="w-full inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                บันทึกข้อมูล
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
